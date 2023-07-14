@@ -1,34 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# WeMintArt Frontend
 
-## Getting Started
+This project is the frontend for the WeMintArt application. It is built using React and connects to a Whitelist Contract deployed on the Ethereum blockchain.
 
-First, run the development server:
+## Project Structure
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+The project is structured as a typical React application, with the main entry point being `src/index.tsx`. The `src` directory contains all the React components, services, and utilities used in the application.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Connecting to the Whitelist Contract
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+To connect the frontend to the Whitelist Contract, follow these steps:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. **Install Dependencies**: Make sure all the necessary dependencies are installed by running `npm install`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+2. **Update Contract Address**: In the `src/contract.ts` file, replace the placeholder contract address with the actual address of the deployed Whitelist Contract.
 
-## Learn More
+3. **Connect Wallet**: The application uses [MetaMask](https://metamask.io/) for wallet management. Make sure you have MetaMask installed and set up in your browser.
 
-To learn more about Next.js, take a look at the following resources:
+4. **Start the Application**: Start the application by running `npm start`. The application should now be connected to the Whitelist Contract and ready for use.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Next Steps
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The next steps for this project would be to implement the functionality for interacting with the Whitelist Contract. This includes functions for adding and removing addresses from the whitelist, as well as checking if an address is on the whitelist.
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Contributions are welcome! Please feel free to submit a pull request or open an issue on GitHub.
