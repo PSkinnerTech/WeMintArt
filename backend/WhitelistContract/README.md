@@ -1,43 +1,41 @@
-# Building the Whitelist Contract
+# Whitelist Smart Contract
 
-## Step 1: Set Up Your Development Environment
+This repository contains a Whitelist smart contract for an NFT project. The contract is written in Solidity and deployed using the Hardhat development environment.
 
-You'll need Node.js and npm installed on your machine. You'll also need to install the Hardhat development environment by running `npm install --save-dev hardhat`.
+## Overview
 
-## Step 2: Create a New Hardhat Project
+The Whitelist contract allows the owner to manage a list of addresses that are allowed to mint NFTs. The contract includes functions to add and remove addresses from the whitelist, check if an address is whitelisted, and limit the whitelist to 100 addresses.
 
-Run `npx hardhat` in your terminal and select "Create an empty hardhat.config.js" to create a new Hardhat project.
+## Contract Address
 
-## Step 3: Install Dependencies
+The contract is deployed on the local Hardhat network at the following address:
 
-You'll need to install the ethers.js library, which is a library for interacting with the Ethereum blockchain. You can install it by running `npm install --save ethers`.
+`0x5fbdb2315678afecb367f032d93f642f64180aa3`
 
-## Step 4: Write the Smart Contract
+Please note that this address is only valid on the local Hardhat network. If you deploy the contract to a live network (like the Ethereum mainnet or a testnet), it will have a different address.
 
-Create a new file in the `contracts` directory of your project and name it `Whitelist.sol`. Write your smart contract in this file. The contract should have functions to add and remove addresses from the whitelist, check if an address is on the whitelist, and a modifier to restrict certain functions to only addresses on the whitelist.
+## Setup and Deployment
 
-## Step 5: Compile the Smart Contract
+Follow the step-by-step guide below to set up and deploy your own Whitelist contract. You can also refer to the example GitHub repository [here](https://github.com/Olanetsoft/whitelist-smart-contract).
 
-Run `npx hardhat compile` in your terminal to compile your smart contract. This will check your contract for any errors and create an ABI for it.
+1. Install Node.js and npm. You can download them [here](https://nodejs.org/en/download/).
 
-## Step 6: Write a Deployment Script
+2. Install Hardhat by running `npm install --save-dev hardhat` in your terminal.
 
-Create a new file in the `scripts` directory of your project and name it `deploy.js`. In this file, write a script that deploys your smart contract to the Ethereum network.
+3. Initialize a new Hardhat project by running `npx hardhat` and following the prompts. Choose "Create an empty hardhat.config.js" when prompted.
 
-## Step 7: Deploy the Smart Contract
+4. Install the Ethers.js library by running `npm install --save ethers`.
 
-Run `npx hardhat run scripts/deploy.js` in your terminal to deploy your smart contract. Make sure to note down the contract's address.
+5. Create a new file in the `contracts` directory of your Hardhat project and name it `Whitelist.sol`. Copy the Whitelist contract code into this file.
 
-## Step 8: Write a Test File
+6. Compile the contract by running `npx hardhat compile` in your terminal.
 
-Create a new file in the `test` directory of your project and name it `whitelist-test.js`. In this file, write tests for your smart contract.
+7. Create a new file in the `scripts` directory of your Hardhat project and name it `deploy.ts`. This script will handle the deployment of your contract.
 
-## Step 9: Test the Smart Contract
+8. Start a local Hardhat network by running `npx hardhat node` in your terminal.
 
-Run `npx hardhat test` in your terminal to run your tests.
+9. Deploy the contract to the local Hardhat network by running `npx hardhat run scripts/deploy.ts --network localhost` in your terminal.
 
-## Step 10: Interact with the Smart Contract
+## License
 
-You can interact with your deployed contract by using the ethers.js library in your dApp. You'll need to create a new instance of the contract using the contract's address and ABI.
-
-Remember to replace the placeholder contract address and private key with your actual contract address and private key.
+This project is licensed under the MIT License.
