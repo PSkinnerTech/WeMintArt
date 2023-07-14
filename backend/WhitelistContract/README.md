@@ -1,41 +1,32 @@
 # Whitelist Smart Contract
 
-This repository contains a Whitelist smart contract for an NFT project. The contract is written in Solidity and deployed using the Hardhat development environment.
+This project involves building and deploying a whitelist smart contract. The contract allows the owner to add Ethereum addresses to a whitelist, and only whitelisted addresses are allowed to perform certain operations.
 
-## Overview
+The contract is built using Solidity and deployed using the Hardhat development environment.
 
-The Whitelist contract allows the owner to manage a list of addresses that are allowed to mint NFTs. The contract includes functions to add and remove addresses from the whitelist, check if an address is whitelisted, and limit the whitelist to 100 addresses.
+## Steps to Build the Whitelist Contract
 
-## Contract Address
+1. ~~Install Node.js and npm.~~
+2. ~~Install Hardhat using npm: `npm install --save-dev hardhat`.~~
+3. ~~Create a new Hardhat project: `npx hardhat`.~~
+4. ~~Install ethers.js: `npm install --save ethers`.~~
+5. ~~Create a new Solidity file for the contract in the `contracts` directory.~~
+6. ~~Write the contract code.~~
+7. ~~Compile the contract: `npx hardhat compile`.~~
+8. ~~Write a deployment script in the `scripts` directory.~~
+9. ~~Start a local Hardhat network: `npx hardhat node`.~~
+10. ~~Deploy the contract to the local Hardhat network: `npx hardhat run scripts/deploy.ts --network localhost`.~~
+11. ~~Note down the contract address output by the deployment script.~~
 
-The contract is deployed on the local Hardhat network at the following address:
+The contract address for the deployed whitelist contract is: `0x5fbdb2315678afecb367f032d93f642f64180aa3`.
 
-`0x5fbdb2315678afecb367f032d93f642f64180aa3`
+## Steps to Connect the Contract to the Frontend
 
-Please note that this address is only valid on the local Hardhat network. If you deploy the contract to a live network (like the Ethereum mainnet or a testnet), it will have a different address.
+1. Install ethers.js in the frontend project: `npm install --save ethers`.
+2. Create a new instance of ethers' Contract object with the contract's address and ABI.
 
-## Setup and Deployment
+## Tutorial and Example
 
-Follow the step-by-step guide below to set up and deploy your own Whitelist contract. You can also refer to the example GitHub repository [here](https://github.com/Olanetsoft/whitelist-smart-contract).
+This project is based on the following tutorial: [Build and Deploy NFT Whitelist Smart Contract](https://web3.hashnode.com/build-and-deploy-nft-whitelist-smart-contract).
 
-1. Install Node.js and npm. You can download them [here](https://nodejs.org/en/download/).
-
-2. Install Hardhat by running `npm install --save-dev hardhat` in your terminal.
-
-3. Initialize a new Hardhat project by running `npx hardhat` and following the prompts. Choose "Create an empty hardhat.config.js" when prompted.
-
-4. Install the Ethers.js library by running `npm install --save ethers`.
-
-5. Create a new file in the `contracts` directory of your Hardhat project and name it `Whitelist.sol`. Copy the Whitelist contract code into this file.
-
-6. Compile the contract by running `npx hardhat compile` in your terminal.
-
-7. Create a new file in the `scripts` directory of your Hardhat project and name it `deploy.ts`. This script will handle the deployment of your contract.
-
-8. Start a local Hardhat network by running `npx hardhat node` in your terminal.
-
-9. Deploy the contract to the local Hardhat network by running `npx hardhat run scripts/deploy.ts --network localhost` in your terminal.
-
-## License
-
-This project is licensed under the MIT License.
+The example GitHub repository associated with the tutorial can be found here: [Whitelist Smart Contract Example](https://github.com/Olanetsoft/whitelist-smart-contract).
