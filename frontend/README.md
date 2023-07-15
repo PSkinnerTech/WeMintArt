@@ -10,13 +10,13 @@ The project is structured as a typical React application, with the main entry po
 
 To connect the frontend to the Whitelist Contract, follow these steps:
 
-1. **Install Dependencies**: Make sure all the necessary dependencies are installed by running `npm install`.
+1. ~~**Install Dependencies**: Make sure all the necessary dependencies are installed by running `npm install`.~~
 
-2. **Update Contract Address**: In the `src/contract.ts` file, replace the placeholder contract address with the actual address of the deployed Whitelist Contract.
+2. ~~**Update Contract Address**: In the `src/contract.ts` file, replace the placeholder contract address with the actual address of the deployed Whitelist Contract.~~
 
-3. **Connect Wallet**: The application uses [MetaMask](https://metamask.io/) for wallet management. Make sure you have MetaMask installed and set up in your browser.
+3. ~~**Connect Wallet**: The application uses [MetaMask](https://metamask.io/) for wallet management. Make sure you have MetaMask installed and set up in your browser.~~
 
-4. **Start the Application**: Start the application by running `npm start`. The application should now be connected to the Whitelist Contract and ready for use.
+4. ~~**Start the Application**: Start the application by running `npm start`. The application should now be connected to the Whitelist Contract and ready for use.~~
 
 ## Next Steps
 

@@ -15,6 +15,7 @@ import { useAccount } from "wagmi";
 import Topbuttons from "./Components/topbuttons";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import React, { useState } from "react";
+import { handleWhitelist } from "../utils/contract"; // Import the function
 
 const Home: NextPage = () => {
   const { address } = useAccount();
@@ -24,10 +25,9 @@ const Home: NextPage = () => {
   const { mutate: claimNft, isLoading, error } = useClaimNFT(editionDrop);
   const [walletAddress, setWalletAddress] = useState("");
 
-  const handleWhitelist = (event: React.FormEvent) => {
+  const handleWhitelistSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    // TODO: Add the walletAddress to your whitelist
-    console.log(`Address submitted: ${walletAddress}`);
+    handleWhitelist(walletAddress);
   };
 
   if (error) {
@@ -57,7 +57,7 @@ const Home: NextPage = () => {
         ) : null}
         <br />
         <ConnectButton />
-        <FormControl id="wallet-address" onSubmit={handleWhitelist}>
+        <FormControl id="wallet-address" onSubmit={handleWhitelistSubmit}>
           <FormLabel>Wallet Address</FormLabel>
           <Input
             type="text"
