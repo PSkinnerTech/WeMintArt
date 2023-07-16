@@ -18,6 +18,10 @@ To connect the frontend to the Whitelist Contract, follow these steps:
 
 4. ~~**Start the Application**: Start the application by running `npm start`. The application should now be connected to the Whitelist Contract and ready for use.~~
 
+5. ~~**Add Wallet Address to Whitelist**: The application now includes a form for adding a wallet address to the whitelist. Enter the address and click "Join Whitelist" to add the address.~~
+
+6. ~~**Check Whitelist Status**: The application now includes a button for checking the whitelist status of an address. Click "Check Whitelist" to fetch and display the list of whitelisted addresses.~~
+
 ## Next Steps
 
 The next steps for this project would be to implement the functionality for interacting with the Whitelist Contract. This includes functions for adding and removing addresses from the whitelist, as well as checking if an address is on the whitelist.

@@ -15,7 +15,7 @@ import { useAccount } from "wagmi";
 import Topbuttons from "./Components/topbuttons";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import React, { useState } from "react";
-import { handleWhitelist } from "../utils/contract"; // Import the function
+import { handleWhitelist, getWhitelistedAddresses } from "../utils/contract"; // Import the functions
 
 const Home: NextPage = () => {
   const { address } = useAccount();
@@ -24,11 +24,38 @@ const Home: NextPage = () => {
   );
   const { mutate: claimNft, isLoading, error } = useClaimNFT(editionDrop);
   const [walletAddress, setWalletAddress] = useState("");
+  const [whitelistState, setWhitelistState] = useState("idle"); // idle, joining, joined, error
 
-  const handleWhitelistSubmit = (event: React.FormEvent) => {
+  const handleWhitelistSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    handleWhitelist(walletAddress);
+    setWhitelistState("joining");
+    try {
+      await handleWhitelist(event, walletAddress);
+      setWhitelistState("joined");
+    } catch (error) {
+      setWhitelistState("error");
+    }
   };
+
+  const checkWhitelist = async () => {
+    const whitelistedAddresses = await getWhitelistedAddresses();
+    console.log("Whitelisted addresses: ", whitelistedAddresses);
+  };
+
+  let joinButtonLabel;
+  switch (whitelistState) {
+    case "joining":
+      joinButtonLabel = "Joining...";
+      break;
+    case "joined":
+      joinButtonLabel = "Joined";
+      break;
+    case "error":
+      joinButtonLabel = "Error";
+      break;
+    default:
+      joinButtonLabel = "Join Whitelist";
+  }
 
   if (error) {
     console.error("failed to claim nft", error);
@@ -65,9 +92,12 @@ const Home: NextPage = () => {
             onChange={(e) => setWalletAddress(e.target.value)}
           />
           <Button mt="4" colorScheme="teal" type="submit">
-            Join Whitelist
+            {joinButtonLabel}
           </Button>
         </FormControl>
+        <Button mt="4" colorScheme="teal" onClick={checkWhitelist}>
+          Check Whitelist
+        </Button>
         {address ? (
           <>
             <Image

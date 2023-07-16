@@ -132,15 +132,22 @@ const contractABI = [
 const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
 
 export async function addToWhitelist(address: string) {
-  // This assumes that the user's browser has a web3 provider available
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
+  // Check if the user's browser has a web3 provider available
+  if (!window.ethereum) {
+    console.error("Please install a web3 provider, such as MetaMask");
+    return false;
+  }
+
+  const provider = new ethers.providers.Web3Provider(window.ethereum as any);
   const signer = provider.getSigner();
 
   const contract = new ethers.Contract(contractAddress, contractABI, signer);
 
   try {
+    console.log(`Adding address ${address} to whitelist...`); // Add this line
     const tx = await contract.addToWhitelist(address);
     await tx.wait();
+    console.log(`Address ${address} added to whitelist`); // Add this line
     return true;
   } catch (err) {
     console.error("Failed to add to whitelist", err);
@@ -160,3 +167,24 @@ export const handleWhitelist = async (
     console.log(`Failed to add address ${walletAddress} to whitelist`);
   }
 };
+
+export async function getWhitelistedAddresses() {
+  // Check if the user's browser has a web3 provider available
+  if (!window.ethereum) {
+    console.error("Please install a web3 provider, such as MetaMask");
+    return [];
+  }
+
+  const provider = new ethers.providers.Web3Provider(window.ethereum as any);
+  const signer = provider.getSigner();
+
+  const contract = new ethers.Contract(contractAddress, contractABI, signer);
+
+  try {
+    const whitelistedAddresses = await contract.getWhitelistedAddresses();
+    return whitelistedAddresses;
+  } catch (err) {
+    console.error("Failed to get whitelisted addresses", err);
+    return [];
+  }
+}
