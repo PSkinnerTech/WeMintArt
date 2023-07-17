@@ -188,5 +188,8 @@ export async function getWhitelistedAddresses() {
     return [];
   }
 }
+<<<<<<< HEAD
 
 export { getWhitelistedAddresses as checkWhitelist };
+=======
+>>>>>>> a0a72086c1aa8b1db88ccc3a1a494248b03d1c21

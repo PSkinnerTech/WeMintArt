@@ -15,7 +15,11 @@ import { useAccount } from "wagmi";
 import Topbuttons from "./Components/topbuttons";
 import { CrossmintPayButton } from "@crossmint/client-sdk-react-ui";
 import React, { useState } from "react";
+<<<<<<< HEAD
 import { handleWhitelist, checkWhitelist } from "../utils/contract"; // Import the functions
+=======
+import { handleWhitelist, getWhitelistedAddresses } from "../utils/contract"; // Import the functions
+>>>>>>> a0a72086c1aa8b1db88ccc3a1a494248b03d1c21
 
 const Home: NextPage = () => {
   const { address } = useAccount();
@@ -37,6 +41,7 @@ const Home: NextPage = () => {
     }
   };
 
+<<<<<<< HEAD
   const handleCheckWhitelist = async () => {
     try {
       const whitelistedAddresses = await checkWhitelist();
@@ -44,6 +49,11 @@ const Home: NextPage = () => {
     } catch (error) {
       console.error("Failed to get whitelisted addresses", error);
     }
+=======
+  const checkWhitelist = async () => {
+    const whitelistedAddresses = await getWhitelistedAddresses();
+    console.log("Whitelisted addresses: ", whitelistedAddresses);
+>>>>>>> a0a72086c1aa8b1db88ccc3a1a494248b03d1c21
   };
 
   let joinButtonLabel;
@@ -89,6 +99,7 @@ const Home: NextPage = () => {
         ) : null}
         <br />
         <ConnectButton />
+<<<<<<< HEAD
         <form onSubmit={handleWhitelistSubmit}>
           {" "}
           {/* Change this line */}
@@ -108,6 +119,22 @@ const Home: NextPage = () => {
           </FormControl>
         </form>{" "}
         {/* And this line */}
+=======
+        <FormControl id="wallet-address" onSubmit={handleWhitelistSubmit}>
+          <FormLabel>Wallet Address</FormLabel>
+          <Input
+            type="text"
+            value={walletAddress}
+            onChange={(e) => setWalletAddress(e.target.value)}
+          />
+          <Button mt="4" colorScheme="teal" type="submit">
+            {joinButtonLabel}
+          </Button>
+        </FormControl>
+        <Button mt="4" colorScheme="teal" onClick={checkWhitelist}>
+          Check Whitelist
+        </Button>
+>>>>>>> a0a72086c1aa8b1db88ccc3a1a494248b03d1c21
         {address ? (
           <>
             <Image
