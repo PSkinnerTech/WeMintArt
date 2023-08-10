@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
+import theme from "../utils/theme";
 import { ChakraProvider, ColorModeScript, extendTheme } from "@chakra-ui/react";
 import {
   chain,
@@ -24,11 +25,9 @@ const config = {
   useSystemColorMode: true,
 };
 const fonts = {
-  heading: `"Inter", sans-s~erif`,
+  heading: `"Inter", sans-serif`,
   body: `"Inter", sans-serif`,
 };
-
-const theme = extendTheme({ config, fonts });
 
 const { chains, provider } = configureChains(
   [chain.goerli],
@@ -100,16 +99,18 @@ function ThirdwebProvider({ wagmiClient, children }: any) {
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <WagmiConfig client={wagmiClient}>
-        <RainbowKitProvider chains={chains} theme={midnightTheme()} coolMode>
-          <ThirdwebProvider wagmiClient={wagmiClient}>
-            <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-            <Component {...pageProps} />
-          </ThirdwebProvider>
-        </RainbowKitProvider>
-      </WagmiConfig>
-    </ChakraProvider>
+    <>
+      <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+      <ChakraProvider theme={theme}>
+        <WagmiConfig client={wagmiClient}>
+          <RainbowKitProvider chains={chains} theme={midnightTheme()} coolMode>
+            <ThirdwebProvider wagmiClient={wagmiClient}>
+              <Component {...pageProps} />
+            </ThirdwebProvider>
+          </RainbowKitProvider>
+        </WagmiConfig>
+      </ChakraProvider>
+    </>
   );
 }
 export default MyApp;
