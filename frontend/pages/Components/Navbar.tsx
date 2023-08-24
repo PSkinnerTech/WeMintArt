@@ -11,16 +11,19 @@ const Navbar: React.FC = () => {
           WeMintArt
         </Link>
         <Flex>
-          <Link href="/" padding="0 1rem">
+          <Link href="/" mt="2" padding="0 1rem">
             Home
           </Link>
-          <Link href="/about" padding="0 1rem">
+          <Link href="/claim-art" mt="2" padding="0 1rem">
+            Claim Art
+          </Link>
+          <Link href="/about" mt="2" padding="0 1rem">
             About
           </Link>
-          <Link href="/gallery" padding="0 1rem">
+          <Link href="/gallery" mt="2" padding="0 1rem">
             Gallery
           </Link>
-          <Link href="/contact" padding="0 1rem">
+          <Link href="/contact" mt="2" padding="0 1rem">
             Contact
           </Link>
           <IconButton

@@ -97,10 +97,10 @@ const Home: NextPage = () => {
               value={walletAddress}
               onChange={(e) => setWalletAddress(e.target.value)}
             />
-            <Button mt="4" colorScheme="teal" type="submit">
+            <Button m="4" colorScheme="teal" type="submit">
               {joinButtonLabel}
             </Button>
-            <Button mt="4" colorScheme="blue" onClick={checkWhitelist}>
+            <Button m="4" colorScheme="blue" onClick={checkWhitelist}>
               Check Whitelist
             </Button>
           </FormControl>

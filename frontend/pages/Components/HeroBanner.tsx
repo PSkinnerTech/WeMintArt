@@ -13,7 +13,6 @@ const HeroBanner: React.FC = () => {
       w="100vw"
       marginLeft="-50vw"
       left="50%"
-      position="relative"
     >
       <ReactPlayer
         url="https://www.youtube.com/watch?v=bEssYwezchw"
@@ -28,16 +27,18 @@ const HeroBanner: React.FC = () => {
           top: "-10%",
           position: "absolute",
         }}
-        config={{
-          youtube: {
-            playerVars: {
-              controls: 0,
-              showinfo: 0,
-              autoplay: 1,
-              mute: 1,
+        config={
+          {
+            youtube: {
+              playerVars: {
+                controls: 0,
+                showinfo: 0,
+                autoplay: 1,
+                mute: 1,
+              },
             },
-          },
-        }}
+          } as any
+        }
       />
       <Box
         position="absolute"
